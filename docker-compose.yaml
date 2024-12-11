@@ -10,6 +10,11 @@ services:
   config-service:
     container_name: configuration
     image: config-service
+    environment:
+      GITHUB_USER: yofujitsu
+      GITHUB_TOKEN: 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
+      GITHUB_URL: https://github.com/rksp8/config.git
+
     ports:
       - "8888:8888"
 
