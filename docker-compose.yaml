@@ -3,13 +3,13 @@ services:
 
   eureka-service:
     container_name: eureka-discovery
-    image: eureka-discovery-server
+    image: eureka-service
     ports:
       - "8761:8761"
 
   config-service:
     container_name: configuration
-    image: configuration-server
+    image: config-service
     ports:
       - "8888:8888"
 
