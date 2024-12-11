@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: infrastructure
+  labels:
+    app: infrastructure
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: infrastructure
+  template:
+    metadata:
+      name: infrastructure
+      labels:
+        app: infrastructure
+    spec:
+      containers:
+        - name: infrastructure
+          image: nginx
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+              protocol: TCP
+      restartPolicy: Always
+      

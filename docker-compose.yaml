@@ -1,0 +1,37 @@
+version: "3"
+services:
+
+  eureka-service:
+    container_name: eureka-discovery
+    image: eureka-discovery-server
+    ports:
+      - "8761:8761"
+
+  config-service:
+    container_name: configuration
+    image: configuration-server
+    ports:
+      - "8888:8888"
+
+  postgresql:
+    container_name: postgresql_rksp8
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: rksp8
+      PGDATA: /data/rksp8
+    volumes:
+      - postgres:/data/rksp8
+    ports:
+      - "5432:5432"
+    networks:
+      - postgres
+    restart: unless-stopped
+
+networks:
+  postgres:
+    driver: bridge
+
+volumes:
+  postgres:
