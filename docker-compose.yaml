@@ -12,7 +12,7 @@ services:
     image: config-service
     environment:
       GITHUB_USER: yofujitsu
-      GITHUB_TOKEN: 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
+      SPRING_CLOUD_CONFIG_SERVER_GIT_PASSWORD: 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
       GITHUB_URL: https://github.com/rksp8/config.git
 
     ports:
